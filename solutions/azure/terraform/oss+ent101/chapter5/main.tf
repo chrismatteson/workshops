@@ -1,4 +1,5 @@
 provider "azurerm" {
+  features {}
 }
 
 # generate random project name
@@ -96,12 +97,7 @@ resource "azurerm_mysql_server" "sql" {
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
 
-  sku {
-    name     = "B_Gen5_2"
-    capacity = 2
-    tier     = "Basic"
-    family   = "Gen5"
-  }
+  sku_name     = "B_Gen5_2"
 
   storage_profile {
     storage_mb            = 5120
